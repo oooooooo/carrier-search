@@ -36,7 +36,7 @@
         if (query.length < 5) { continue }
 
         for (const number in number2carrier) {
-          if (number.startsWith(query)) {
+          if (number.startsWith(query.slice(0, 7))) {
             table += `<tr><td>${query}</td><td>${number}</td><td>${number2carrier[number]}</td></tr>`
           }
         }
