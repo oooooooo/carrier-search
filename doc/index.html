@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="050/0120/0800 電話番号からキャリア検索">
+    <link rel="stylesheet" href="https://unpkg.com/bamboo.css/dist/dark.min.css">
+    <title>050/0120/0800 電話番号からキャリア検索</title>
+  </head>
+  <h1>050/0120/0800 電話番号からキャリア検索</h1>
+
+  <p id="lastUpdated"></p>
+
+  <textarea id="q" rows="20" placeholder="入力例
+050-CDEF-GHJK
+050CDEFGHJK
+050CDEF
+8150CDEFGHJK
++8150CDEFGHJK
++8150-CDEF
+012090"></textarea>
+
+  <div id="result"></div>
+
+  <script src="./number2carrier.js"></script>
+  <script>
+    const q = document.getElementById('q')
+    const result = document.getElementById('result')
+
+    const search = (textarea) => {
+      let table = ''
+      for (const line of textarea.split("\n")) {
+        const query = line.replaceAll('+', '').replace(/^81/, '0').replaceAll('-', '').replace(/\s/g, '')
+        if (query.length < 5) { continue }
+
+        for (const number in number2carrier) {
+          if (number.startsWith(query)) {
+            table += `<tr><td>${query}</td><td>${number}</td><td>${number2carrier[number]}</td></tr>`
+          }
+        }
+      }
+      result.innerHTML = `<table>${table}</table>`
+    }
+
+    q.addEventListener('keyup', (event) => {
+      search(event.target.value)
+    })
+
+    document.getElementById('lastUpdated').innerText = `電気通信番号指定状況の最終更新日: ${number2carrier.lastUpdated}`
+  </script>
+</body>
+</html>
