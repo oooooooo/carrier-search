@@ -1,5 +1,4 @@
-default:
-	ruby app.rb > docs/number2carrier.js
+default: update
 
 clean:
 	rm *.csv
@@ -7,3 +6,4 @@ clean:
 
 update:
 	./update.sh
+	ruby app.rb > docs/number2carrier.js

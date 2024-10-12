@@ -16,7 +16,7 @@ docs/index.html はローカルで利用可能。[GitHub Pages でも動作可�
 
 ## データ更新
 
-電気通信番号指定状況の更新は下記
+電気通信番号指定状況の更新
 
 ```shell
 make
