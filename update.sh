@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html
 curl https://www.soumu.go.jp/main_content/000697573.xlsx --output 050.xlsx
