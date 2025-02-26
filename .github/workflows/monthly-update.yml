@@ -19,7 +19,7 @@ jobs:
         ruby-version: '3.4'
 
     - name: Install dependencies
-      run: sudo pip install --upgrade xlsx2csv
+      run: pip install --upgrade xlsx2csv
 
     - name: Run make
       run: make
